@@ -41,7 +41,7 @@ module RecipeApp
             puts " "
             puts "Show more details about your favorite recipe by typing its number and hit enter"
             @input = gets.strip.downcase
-            Recipe.find_by_number(@input).summary
+            Recipe.find_by_number(@input)
             puts " "
         end
         
