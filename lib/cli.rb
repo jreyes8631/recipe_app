@@ -10,12 +10,12 @@ module RecipeApp
         def start
             puts "Hey there! you hungry? lets find some recipes ideas for you."
             
-            list_recipe_by_ingredients
+            load_recipe_by_ingredients
             show_summary
-            
+        
           while @input != "exit" 
                 if @input == "back"
-                   list_recipe_by_ingredients
+                   load_recipe_by_ingredients
                 elsif valid_input?
                  puts Recipe.find_by_number(@input).summary
                 else
@@ -27,14 +27,21 @@ module RecipeApp
 
 
         #this method connects to the Recipe class method to dispay a list of recipe given the user input.
-        def list_recipe_by_ingredients
-            puts "Search for recipes with the main ingredient, example: milk, pizza, eggs, sandwich, ect."
-            @input = gets.strip.downcase
-            puts " "
-            Recipe.search_for_recipes(@input).each.with_index(1) do |recipe, index|
+        def load_recipe_by_ingredients
+            recipes = []
+
+            loop do
+                puts 'Search for recipes with the main ingredient, example: milk, pizza, eggs flour, etc.'
+                input = gets.strip.downcase
+                puts
+                recipes = Recipe.search_for_recipes(input)
+                break if recipes.any?
+                puts 'No recipes found, please try again'
+            end
+
+            recipes.each.with_index(1) do |recipe, index|
                 puts "#{index}. #{recipe.title}"
             end
-            
         end
        
         def show_summary

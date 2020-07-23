@@ -1,4 +1,4 @@
-require 'pry'
+require "pry"
 
 module RecipeApp
 
@@ -30,6 +30,7 @@ module RecipeApp
             attributes.each do |attribute_name, attribute_value|
                 self.send(("#{attribute_name}="), attribute_value) if self.respond_to?("#{attribute_name}=") 
             end
+            
         end
 
         def save
