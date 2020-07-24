@@ -2,7 +2,6 @@ require 'httparty'
 require_relative "recipe_app/version"
 require 'uri'
 require 'net/http'
-require 'openssl'
 require 'json'
 require 'pry'
 require_relative "../secret"
