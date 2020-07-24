@@ -26,7 +26,7 @@ module RecipeApp
         end
 
 
-        #this method connects to the Recipe class method to dispay a list of recipe given the user input.
+        
         def load_recipe_by_ingredients
             recipes = []
 
@@ -68,7 +68,7 @@ module RecipeApp
             puts " "
         end
 
-        #This method will validate the user selection between 1 and how many recipe is displaying
+        
         def valid_input?
             @input.to_i.between?(1, Recipe.all.length)
         end
