@@ -33,10 +33,6 @@ module RecipeApp
 
         end
 
-        def save
-            @@all << self
-        end
-          
       
         def summary 
             @summary ||= APImanager.get_summary_from_api(id)
