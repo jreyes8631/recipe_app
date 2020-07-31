@@ -18,8 +18,6 @@ module RecipeApp
             res = JSON.parse(response.body)
             posts = res["results"]
 
-            array = []
-
             posts.map do |post|
                 new_hash = {
                     title: post["title"],
